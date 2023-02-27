@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+    --green-color: rgb(0, 128, 0);
+    --yellow-color: rgb(255, 165, 0);
+    --red-color: rgb(255, 0, 0);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    background: #ecf0f1;
+}
+
+.content  button {
+    padding: 8px 16px;
+    margin: 0 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #fff;
+}
+
+.success {
+    background: var(--green-color);
+}
+
+.warning {
+    background-color: var(--yellow-color);
+}
+
+.error {
+    background-color: var(--red-color);
+}
+
+#toasts {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.toast {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    border-left: 5px solid;
+    animation: slideShow 1s ease forwards;
+}
+
+@keyframes slideShow {
+    0% {
+        transform: translateX(100%);
+    }
+    40% {
+        transform: translateX(-10%);
+    }
+    80% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-10px);
+    }
+}
+
+@keyframes hideShow {
+    0% {
+		transform: translateX(-10px);
+	}
+	40% {
+		transform: translateX(0%);
+	}
+	80% {
+		transform: translateX(-10%);
+	}
+	100% {
+		transform: translateX(120%);
+	}
+}
+
+.toast i {
+    margin-right: 10px;
+    font-size: 28px;
+    color: #fff;
+}
+
+.toast.success {
+    border-left-color: var(--green-color);
+    background-color: rgba(0, 128, 0, 0.5);;
+}
+
+.toast.warning {
+    border-left-color: var(--yellow-color);
+    background-color: rgb(255, 165, 0, 0.5);
+}
+
+.toast.error {
+    border-left-color: var(--red-color);
+    background-color: rgb(255, 0, 0, 0.5);
+}
+
+.countdown {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    animation: countdown 4s ease forwards;
+}
+
+@keyframes countdown {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0;
+    }
+}
+
+.toast.success .countdown {
+    background-color: rgba(0, 128, 0);
+}
+
+.toast.warning .countdown {
+    background-color: rgb(255, 165, 0);
+}
+
+.toast.error .countdown {
+    background-color: rgb(255, 0, 0);
+}
+
+
